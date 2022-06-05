@@ -3,8 +3,10 @@
 WalkerNet is an SDN project running on Linux environment.
 Walker targets this project as a laboratory to study the network.
 
-## Configuration Need
+## Configuration Needed
 Linux OS, Walker tests this project on WSL (Ubuntu 20.04 LTS)
+
+## Main Content
 
 This project contain (and will contain):
 
@@ -13,7 +15,7 @@ This project contain (and will contain):
 3. A compiler which can compile a language designed by Walker.
 4. A virtual network environment use mininet, with some difference.
 
-## How to run
+## How to Run
 
 For convenience, Walker use dependencies as little as possible. 
 
