@@ -15,5 +15,5 @@
 
 int main() {
     Mapper& mapper = Mapper::CreateMapper();
-    PhysicalLayer(mapper.GetInterfacesInfo("../../Test/test.json")).Test();
+    PhysicalLayer(mapper.GetInterfacesInfo("../Test/test.json")).Test();
 }
