@@ -3,6 +3,9 @@
 WalkerNet is an SDN project running on Linux environment.
 Walker targets this project as a laboratory to study the network.
 
+## Configuration Need
+Linux OS, Walker tests this project on WSL (Ubuntu 20.04 LTS)
+
 This project contain (and will contain):
 
 1. A stable and multiple Physical Layer, such as error-free channel, and error-high channel.
