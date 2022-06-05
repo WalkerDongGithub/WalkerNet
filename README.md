@@ -19,8 +19,10 @@ Now you just need pcap installed, without other dependencies.
 And some submodules contain a CMakeLists.txt, every CMakeLists.txt describe a way to compile a whole test.
 Therefore, if a submodule contains a CMakeLists.txt, it is probable to reuse as an independent module to other project.
 
-Every cmake list just 
+For example, if you want to compile Physical Layer Test.
+you just 
 ```shell
+cd PhysicalLayer
 cmake .
 make 
 ```
