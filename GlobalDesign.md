@@ -149,3 +149,18 @@ I call it utopia-version.
 ## Walker Virtual Environment
 
 This part will use mininet as the basic environment. But I will change this tool as the Walker virtual environment, heihei.
+
+## Software Design
+
+For the software itself, it need to make sure that:
+
+### indepedent
+All submodules are independent modules, it can be used to another project.
+
+For example, the physical layer is an independent module, which can not only build a switch, but also make a packet-capture program like wireshark.
+
+### as little dependences as possible
+
+For a student's project, high efficient programming is not what Walker want, but all are under control, and almost all made in Walker.
+
+By the way, what a pity that configuring the dependencies is what a programmer has to do when he/she wants to run the codes, whether it is well-off or hopeless! So I want to eradicate the dependencies configuring as well as possible.
