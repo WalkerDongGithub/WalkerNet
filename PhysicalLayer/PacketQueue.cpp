@@ -22,19 +22,23 @@ Packet &Packet::operator=(const Packet &packet) {
     return *this;
 }
 
-void PacketQueue::push(const Packet &t) {
-    {
-        std::unique_lock<std::mutex> ul(m);
-        q.push(t);
-    } cv.notify_one();
-}
+#include "PacketQueue/UtopiaPacketQueue.h"
+#include "PacketQueue/ErrorFreePacketQueue.h"
+#include "PacketQueue/ErrorHighPacketQueue.h"
 
-Packet PacketQueue::pop() {
-    Packet res;
-    std::unique_lock<std::mutex> ul(m);
-    cv.wait(ul, [&]{ return !q.empty();});
-    res = q.front();
-    res.index++;
-    q.pop();
-    return res;
+UtopiaPacketQueue utopiaPacketQueue;
+ErrorFreePacketQueue errorFreePacketQueue;
+ErrorHighPacketQueue errorHighPacketQueue;
+
+PacketQueue& PacketQueue::GetPacketQueue(int type) {
+    switch (type) {
+        case UTOPIA:
+            return utopiaPacketQueue;
+        case ERROR_FREE:
+            return errorFreePacketQueue;
+        case ERROR_HIGH:
+            return errorHighPacketQueue;
+        default:
+            return utopiaPacketQueue;
+    }
 }

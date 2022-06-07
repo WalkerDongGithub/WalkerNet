@@ -36,8 +36,22 @@ using PacketInfo = pcap_pkthdr;
 using byte = unsigned char;
 using ConstBuffer = const byte*;
 using Buffer = byte*;
-const int PACKET_SIZE = 1700;
+
+/** MTU in a packet, if packet size is bigger than this number, switch will drop it.*/
+const int PACKET_SIZE = 65536;
+
+/** Queue Capacity, if you use the error free or error high queue. */
+const int QUEUE_CAPACITY = 10;
+
+/** Array size, we will use static queue, queue size is capacity + 1*/
+constexpr const int QUEUE_ARRAY_SIZE = QUEUE_CAPACITY + 1;
+
+/** If you use error-high physical layer, loss will happen, the probability is 1/(ERROR_PROBABILITY)*/
+const int ERROR_PROBABILITY = 1000;
 
 using InterfacesInfo = std::vector<std::pair<std::string, std::string>>;
 
+const int UTOPIA = 1;
+const int ERROR_FREE = 2;
+const int ERROR_HIGH = 3;
 #endif //WALKERNET_PHYSICALLAYERDEFINITION_H

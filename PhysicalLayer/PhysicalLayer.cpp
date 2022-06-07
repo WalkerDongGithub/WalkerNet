@@ -6,13 +6,13 @@ using std::cout;
 void PhysicalLayer::Test() {
     for (;;) {
         Packet packet = Get();
-        printf("length : %d ", packet.len);;
-        printf("name : %s ", interfaces[packet.index - 1].name.c_str());
-        printf("index : %d ", packet.index);
-        printf("head : ");
-        for (int j = 0; j < 14 + 20; j++) {
-            printf("%02x ", packet.content[j]);
-        } printf("\n");
+//        printf("length : %d ", packet.len);;
+//        printf("name : %s ", interfaces[packet.index - 1].name.c_str());
+//        printf("index : %d ", packet.index);
+////        printf("head : ");
+////        for (int j = 0; j < 14 + 20; j++) {
+////            printf("%02x ", packet.content[j]);
+//        printf("\n");
     }
 }
 
@@ -32,9 +32,9 @@ void PhysicalLayer::BeginReceive(PhysicalLayer &physicalLayer, int index) {
 /**
  * Initialize the physical layer, such as the interfaces' information.
  * and create the receive thread.
- * @param interfacesInfo
  */
-PhysicalLayer::PhysicalLayer(const InterfacesInfo &interfacesInfo) {
+PhysicalLayer::PhysicalLayer(const InterfacesInfo &interfacesInfo, int type):
+    packets(PacketQueue::GetPacketQueue(type)){
 
     InterfaceAddress *ifaddr;
     if (getifaddrs(&ifaddr) < 0) {

@@ -9,12 +9,13 @@ Create a Physical Layer class, finally run 'test' function.
 
 ## How to use:
 
-Physical Layer receives InterfacesInfo as the only parameter.
+Physical Layer receives InterfacesInfo as the parameter.
 The parameter is created by Mapper, you just need to write json (now I want set all config via json) so that you can tell the physical layer which interfaces it should listen.
+And you will select the quality of service, utopia, error-free or error-high.
 ```C++
 int main() {
     Mapper& mapper = Mapper::CreateMapper();
-    PhysicalLayer(mapper.GetInterfacesInfo("/home/walker/WalkerNet/Test/test.json")).Test();
+    PhysicalLayer(mapper.GetInterfacesInfo("../Test/test.json"), UTOPIA).Test();
 }
 ```
 The json configuration just like :

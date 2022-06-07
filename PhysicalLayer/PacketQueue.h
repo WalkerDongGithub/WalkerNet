@@ -37,13 +37,10 @@ struct Packet {
  *
  */
 struct PacketQueue {
-private:
-    std::queue<Packet> q;
-    std::mutex m;
-    std::condition_variable cv;
 public:
-    void push(const Packet& t);
-    Packet pop();
+    virtual void push(const Packet& t) = 0;
+    virtual Packet pop() = 0;
+    static PacketQueue& GetPacketQueue(int type);
 };
 
 

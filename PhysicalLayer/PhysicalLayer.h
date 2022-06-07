@@ -47,7 +47,7 @@ class PhysicalLayer {
      *          to the packet queue, when the switch is ready to process a packet,
      *          it just get one away from the front of the packet queue.
      */
-    PacketQueue packets;
+    PacketQueue& packets;
 
 
 
@@ -62,8 +62,13 @@ public:
      *          constructor only receives vector<pair<string, string>> as parameter.
      *          parameter interfacesInfo is just like [{"name": "lo", "ip": "127.0.0.1"}] (for json).
      *
+     *          physical layer receives a type number to decide the layer will use what quality of service.
+     *          UTOPIA :    Error free, and no packet-dropping.
+     *          ERROR_FREE: Error free, but have limited queue capacity.
+     *          ERROR_HIGH: Packet loss will happen.
+     *
      * */
-    PhysicalLayer(const InterfacesInfo& interfacesInfo);
+    PhysicalLayer(const InterfacesInfo& interfacesInfo, int type);
 
 
     /**

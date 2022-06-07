@@ -6,6 +6,13 @@ add_executable(PhysicalLayer
         PacketQueue.h
         PacketQueue.cpp
 
+        PacketQueue/UtopiaPacketQueue.h
+        PacketQueue/UtopiaPacketQueue.cpp
+        PacketQueue/ErrorFreePacketQueue.h
+        PacketQueue/ErrorFreePacketQueue.cpp
+        PacketQueue/ErrorHighPacketQueue.h
+        PacketQueue/ErrorHighPacketQueue.cpp
+        
         ../Mapper/Mapper.h
         ../Mapper/Mapper.cpp
 
